@@ -1,0 +1,46 @@
+user1 = input("What is Player 1's name? ")
+user2 = input("What is Player 2's name? ")
+
+user1_answer = input(user1 + ", do you want to choose rock, paper or scissors? ").lower()
+user2_answer = input(user2 + ", do you want to choose rock, paper or scissors? ").lower()
+
+if user1_answer == user2_answer:
+    print("It's a tie!")
+elif user1_answer == 'rock':
+    if user2_answer == 'scissors':
+        print("Rock wins!")
+    else:
+        print("Paper wins!")
+elif user1_answer == 'scissors':
+    if user2_answer == 'paper':
+        print("Scissors win!")
+    else:
+        print("Rock wins!")
+elif user1_answer == 'paper':
+    if user2_answer == 'rock':
+        print("Paper wins!")
+    else:
+        print("Scissors win!")
+else:
+    print("Invalid input! You have not entered rock, paper or scissors, try again.")
+
+    """
+Sample1: PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_3"
+What is Player 1's name? Rajesh
+What is Player 2's name? Thanuj  
+Rajesh, do you want to choose rock, paper or scissors? rock
+Thanuj, do you want to choose rock, paper or scissors? rock
+It's a tie!
+Sample2: PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_3"
+What is Player 1's name? Rajesh
+What is Player 2's name? Thanuj
+Rajesh, do you want to choose rock, paper or scissors? paper
+Thanuj, do you want to choose rock, paper or scissors? scissors
+Scissors win!
+Sample3:PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_3"
+What is Player 1's name? Rajesh
+What is Player 2's name? Thanuj
+Rajesh, do you want to choose rock, paper or scissors? papers
+Thanuj, do you want to choose rock, paper or scissors? rock
+Invalid input! You have not entered rock, paper or scissors, try again.
+"""

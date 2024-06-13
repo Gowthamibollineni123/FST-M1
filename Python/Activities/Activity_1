@@ -1,0 +1,12 @@
+name = input( "What is your name: " )
+age = int( input( "How old are you: " ) )
+year = str( ( 2024 - age ) + 100 )
+print(name + " will be 100 years old in the year " + year) 
+
+""" output:
+PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/activity_1"
+What is your name: Gowthami b
+How old are you: 25
+Gowthami b will be 100 years old in the year 2099
+"""
+

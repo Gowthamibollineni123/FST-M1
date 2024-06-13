@@ -1,0 +1,14 @@
+n = int(input("Enter your number:"))
+module = n%2
+
+if module>0:
+    print("Odd number entered")
+else:
+    print("Even number entered")
+
+"""PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_2"
+Enter your number:7
+Odd number entered
+PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_2"
+Enter your number:4
+Even number entered"""
