@@ -1,0 +1,16 @@
+for i in range(10):
+    print(str(i) * i)
+
+
+"""PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_6"
+
+1
+22
+333
+4444
+55555
+666666
+7777777
+88888888
+999999999
+"""

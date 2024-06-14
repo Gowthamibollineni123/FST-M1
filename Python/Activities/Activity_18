@@ -1,0 +1,57 @@
+# Import pandas
+import pandas
+
+# Read the CSV file and store it into a DataFrame
+dataframe = pandas.read_csv("sample.csv")
+
+# Print the full data
+print("Full Data: ")
+print(dataframe)
+
+# Print the values in the Usernames column only
+print("===============")
+print("Usernames:")
+print(dataframe["Usernames"])
+
+# Print the username and password of the second row
+print("===============")
+print("Username: ", dataframe["Usernames"][1], " | ", "Password: ", dataframe["Passwords"][1])
+
+#Sort the Usernames column in ascending order
+print("====================================")
+print("Data sorted in ascending Usernames:")
+print(dataframe.sort_values('Usernames'))
+
+#Sort the Passwords column in descending order
+print("====================================")
+print("Data sorted in descending Passwords:")
+print(dataframe.sort_values('Passwords', ascending=False))
+
+"""
+PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_18"
+Full Data: 
+  Usernames Passwords
+0     admin  password
+1   Charles   Charl13
+2      Deku  AllMight
+===============
+Usernames:
+0      admin
+1    Charles
+2       Deku
+Name: Usernames, dtype: object
+===============
+Username:  Charles  |  Password:  Charl13
+====================================
+Data sorted in ascending Usernames:
+  Usernames Passwords
+1   Charles   Charl13
+2      Deku  AllMight
+0     admin  password
+====================================
+Data sorted in descending Passwords:
+  Usernames Passwords
+0     admin  password
+1   Charles   Charl13
+2      Deku  AllMight
+"""

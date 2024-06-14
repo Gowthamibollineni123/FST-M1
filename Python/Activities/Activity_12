@@ -1,0 +1,15 @@
+# Define function to calculate sum
+def calculateSum(num):
+  if num:
+    return num + calculateSum(num-1)
+  else:
+    return 0
+  
+res = calculateSum(10)
+
+print(res)
+
+"""
+PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_12"
+55
+"""

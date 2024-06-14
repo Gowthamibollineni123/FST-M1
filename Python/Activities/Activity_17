@@ -1,0 +1,26 @@
+
+import pandas
+
+data = {
+  "Usernames": ["admin", "Charles", "Deku"],
+  "Passwords": ["password", "Charl13", "AllMight"]
+}
+
+dataframe = pandas.DataFrame(data)
+
+print(dataframe)
+
+"""
+ Write the DataFrame to a CSV file
+ To avoid writing the index numbers to the file as well
+ the index property is set to false
+"""
+dataframe.to_csv("sample.csv", index=False)
+
+"""
+PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_17"
+  Usernames Passwords
+0     admin  password
+1   Charles   Charl13
+2      Deku  AllMight
+"""

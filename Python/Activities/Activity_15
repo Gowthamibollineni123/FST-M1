@@ -1,0 +1,9 @@
+try:
+    print(x)
+except NameError:
+    print("x hasn't been defined yet.")
+
+    """
+    PS C:\Users\0009V9744\Desktop\Python Activities> & C:/Users/0009V9744/AppData/Local/Programs/Python/Python312/python.exe "c:/Users/0009V9744/Desktop/Python Activities/Activity_15"
+x hasn't been defined yet.
+    """
