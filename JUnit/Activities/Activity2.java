@@ -1,22 +1,28 @@
-package Demo;
+package demos;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+
 
 public class Activity2 {
 	
-	    private Integer balance;
-	    
-	    // Create a constructor
-	    public Activity2(Integer initialBalance) {
-	        balance = initialBalance;
-	    }
+@Test
+void notEnoughFunds() {
+    // Create an object for BankAccount class
+ BankAccount account = new BankAccount(9);
+ assertThrows(NotEnoughFundsException.class, () -> account.withdraw(10));
+}
 
-	  
-	    public Integer withdraw(Integer amount) {
-	        if (balance < amount) {
-	            throw new NotEnoughFundsException(amount, balance);
-	        }
-	        balance -= amount;
-	        return balance;
-	    }
-	}
+@Test
+void enoughFunds() {
+// Create an object for BankAccount class
+BankAccount account = new BankAccount(100);
 
+// Assertion for no exceptions
+assertDoesNotThrow(() -> account.withdraw(100));
+}
 
+}
