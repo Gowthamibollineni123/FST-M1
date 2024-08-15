@@ -1,11 +1,13 @@
 package Activities;
 
 
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,63 +19,62 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import java.util.List;
-public class Activity6 {
 
+public class Activity5 {
+ 
     AndroidDriver driver;
     WebDriverWait wait;
 
  
     @BeforeClass
     public void setUp() throws MalformedURLException {
- 
+  
         UiAutomator2Options options = new UiAutomator2Options();
         options.setPlatformName("android");
         options.setAutomationName("UiAutomator2");
-        options.setAppPackage("com.android.chrome");
-        options.setAppActivity("com.google.android.apps.chrome.Main");
+        options.setAppPackage("com.google.android.apps.messaging");
+        options.setAppActivity(".ui.ConversationListActivity");
         options.noReset();
 
-
+  
         URL serverURL = new URL("http://localhost:4723/");
 
-
+     
         driver = new AndroidDriver(serverURL, options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-
-        driver.get("https://v1.training-support.net/selenium/lazy-loading");
     }
-
 
     @Test
-    public void chromeTest() {
-        String UiScrollable = "UiScrollable(UiSelector().scrollable(true))";
+    public void smsTest() {
+   
+        driver.findElement(AppiumBy.accessibilityId("Start new conversation")).click();
+
+   
+        wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.id("recipient_text_view")
+        ));
 
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.className("android.widget.Image")));
+        driver.findElement(AppiumBy.id("recipient_text_view")).sendKeys("18282832912");
+
+        driver.pressKey(new KeyEvent(AndroidKey.ENTER));
 
 
-        List<WebElement> imageElements = driver.findElements(AppiumBy.className("android.widget.Image"));
+        wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.id("compose_message_text")));
 
+        driver.findElement(AppiumBy.id("compose_message_text")).sendKeys("Hello from Appium");
 
-        System.out.println("Before scroll: " + imageElements.size());
+        driver.findElement(AppiumBy.accessibilityId("Send SMS")).click();
 
-
-        driver.findElement(AppiumBy.androidUIAutomator(UiScrollable + ".scrollTextIntoView(\"helen\")"));
-
-
-        imageElements = driver.findElements(AppiumBy.className("android.widget.Image"));
-
-        System.out.println("After scroll: " + imageElements.size());
-
-        Assert.assertEquals(imageElements.size(), 5);
+    
+        String messageTextSent = driver.findElement(AppiumBy.id("message_text")).getText();
+        Assert.assertEquals(messageTextSent, "Hello from Appium");
     }
 
-
+  
     @AfterClass
     public void tearDown() {
-   
+  
         driver.quit();
     }
 }
